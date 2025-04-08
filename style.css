@@ -1,0 +1,339 @@
+/* Base styles */
+:root {
+    --primary: #1a1a1a;
+    --accent: #0066cc;
+    --bg: #ffffff;
+    --text: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: var(--bg);
+    padding: 1.5rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Main content */
+.hugfan {
+    margin-top: 100px;
+    padding: 2rem;
+}
+
+/* Introduction section */
+.intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 2rem;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: var(--text);
+    line-height: 1.8;
+}
+
+/* Portfolio items */
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.item {
+    background: var(--bg);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.item:hover img {
+    transform: scale(1.05);
+}
+
+.innehal {
+    padding: 1.5rem;
+}
+
+.titel {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.amne {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.des {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+button:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* Project Page Styles */
+.project-page {
+    max-width: 1200px;
+    margin: 100px auto 0;
+    padding: 2rem;
+}
+
+.project-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.project-hero h1 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.project-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.project-image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-details h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.project-details p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text);
+}
+
+.skills-list, .project-features {
+    margin-bottom: 2rem;
+}
+
+.skills-list h3, .project-features h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.skills-list ul, .project-features ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li, .project-features li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.skills-list li::before, .project-features li::before {
+    content: "•";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+}
+
+.cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--bg);
+    border-radius: 8px;
+    margin-top: 4rem;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Responsive styles for project pages */
+@media (max-width: 768px) {
+    .project-content {
+        grid-template-columns: 1fr;
+    }
+
+    .project-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .project-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .project-details h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .hugfan {
+        margin-top: 150px;
+    }
+
+    .intro {
+        padding: 1rem;
+    }
+
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+} 
